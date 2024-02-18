@@ -4,6 +4,8 @@
 
 import axios from "axios"
 
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
+
 export const errorHandler = (err) => {
     const statusCode = err?.response?.status
 
@@ -32,7 +34,6 @@ export const postApi = async (url, data) => {
         return axios
             .post(url, data, config)
             .then((response) => response)
-            .catch(errorHandler)
     }
     catch (err) {
         return promisifyError(err)

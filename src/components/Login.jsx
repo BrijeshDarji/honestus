@@ -1,5 +1,7 @@
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
+import { Loader2 } from "lucide-react"
 import * as yup from "yup"
 
 import HonestusTransparent from "../assets/images/HonestusTransparent.svg"
@@ -15,13 +17,22 @@ import {
 
 import { Button } from "@/src/components/ui/button"
 import { Input } from "@/src/components/ui/input"
+import { useToast } from "@/src/components/ui/use-toast"
+
+import { postApi } from "../helpers/ApiHelper"
+import { LOGIN_API_PATH } from "../assets/constants/ApiPath"
+
+import {
+    ERROR_MESSAGES,
+    SUCCESS_MESSAGES,
+} from "../assets/constants/Messages"
 
 const schema = yup
     .object({
-        username: yup
+        email: yup
             .string()
             .trim()
-            .required("Username is required"),
+            .required("Email or Username is required"),
         password: yup
             .string()
             .trim()
@@ -29,16 +40,38 @@ const schema = yup
     })
 
 function Login() {
+    const [loading, setLoading] = useState(false)
+    const { toast } = useToast()
 
     const form = useForm({
         resolver: yupResolver(schema),
         defaultValues: {
-            username: "",
+            email: "",
             password: ""
         },
     })
 
-    const handleSubmit = (data) => console.log("data", data)
+    const handleLogin = (data) => {
+        setLoading(true)
+
+        postApi(LOGIN_API_PATH, data)
+            .then(response => {
+                toast({
+                    title: SUCCESS_MESSAGES.TOAST_TITLE,
+                    description: response.message,
+                })
+            })
+            .catch(error => {
+                toast({
+                    title: ERROR_MESSAGES.TOAST_TITLE,
+                    description: error.message,
+                    variant: "destructive",
+                })
+            })
+            .finally(() => {
+                setLoading(false)
+            })
+    }
 
     return (
         <div className='w-full h-screen flex items-center justify-center'>
@@ -64,11 +97,11 @@ function Login() {
                     <Form {...form}>
                         <form
                             className="space-y-6"
-                            onSubmit={form.handleSubmit(handleSubmit)}
+                            onSubmit={form.handleSubmit(handleLogin)}
                         >
                             <FormField
                                 control={form.control}
-                                name="username"
+                                name="email"
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormLabel>Your email or username</FormLabel>
@@ -103,9 +136,17 @@ function Login() {
                             <Button
                                 className="bg-darkOrange hover:bg-darkOrange focus-visible:border-darkOrange"
                                 type="submit"
+                                disabled={loading}
                             >
-                                {/* <Loader2 className="mr-2 h-4 w-4 animate-spin" /> */}
-                                Login
+                                {loading
+                                    ? (
+                                        <>
+                                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                            Logging in
+                                        </>
+                                    )
+                                    : "Login"
+                                }
                             </Button>
                         </form>
                     </Form>
