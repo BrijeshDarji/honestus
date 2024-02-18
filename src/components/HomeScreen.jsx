@@ -1,4 +1,5 @@
 import { Menu } from "lucide-react"
+import { useNavigate } from "react-router-dom"
 
 import {
     DropdownMenu,
@@ -6,6 +7,8 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/src/components/ui/dropdown-menu.jsx"
+
+import { Button } from "@/src/components/ui/button"
 
 import HonestusLogo from "../assets/images/HonestusLogo.svg"
 import TestingAggregator from "../assets/images/TestingAggregator.svg"
@@ -19,7 +22,11 @@ import {
     WHY_WE_EXISTS,
 } from "../assets/constants/Constant"
 
+import { URL_LOGIN } from "../assets/constants/SitePath"
+
 function HomeScreen() {
+    const navigate = useNavigate()
+
     return (
         <>
             <div className="flex py-4 px-9 md:px-40 justify-between items-center self-stretch">
@@ -58,9 +65,12 @@ function HomeScreen() {
                         ))
                     }
 
-                    <button className="bg-darkOrange rounded-lg flex flex-col justify-center items-center gap-3 px-6 py-2">
-                        <div className="text-white text-xl font-semibold">LOGIN</div>
-                    </button>
+                    <Button
+                        className="bg-darkOrange hover:bg-darkOrange font-semibold text-xl"
+                        onClick={() => navigate(URL_LOGIN)}
+                    >
+                        LOGIN
+                    </Button>
                 </div>
             </div>
 
@@ -89,7 +99,7 @@ function HomeScreen() {
                         Trusted by numerous construction companies
                     </div>
 
-                    <div className='text-[#757575] text-2xl font-roboto'>
+                    <div className='text-darkSlate text-2xl font-roboto'>
                         Honestus made our project seamless by connecting us with a reliable material testing lab and taking care of all the logistics.
                     </div>
 
@@ -140,7 +150,7 @@ function HomeScreen() {
                                         {card.title}
                                     </div>
 
-                                    <div className="text-base text-[#757575]">
+                                    <div className="text-base text-darkSlate">
                                         {card.description}
                                     </div>
                                 </div>

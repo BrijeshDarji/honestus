@@ -27,6 +27,8 @@ export default {
 			},
 			colors: {
 				darkOrange: "#FBA72E",
+				darkSlate: "#757575",
+				lightWhite: "#F5F5F5F2",	
 			},
 			spacing: {
 				25: "6.25rem",
@@ -52,6 +54,10 @@ export default {
 			},
 			height: {
 				103: "32.5rem"
+			},
+			lineHeight: {
+				'extra-loose': '2.5',
+				'12': '3rem',
 			},
 			textShadow: {
 				sm: '0 1px 2px var(--tw-shadow-color)',

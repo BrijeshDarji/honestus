@@ -8,12 +8,12 @@ import { Routes, Route, BrowserRouter } from "react-router-dom"
 
 import LoadingFallback from "./LoadingFallback.jsx"
 import HomeScreen from "../components/HomeScreen.jsx"
-/* import Login from "../components/login/Login.jsx"
-import SignUp from "../components/signup/SignUp.jsx" */
+import Login from "../components/Login.jsx"
+/* import SignUp from "../components/signup/SignUp.jsx" */
 import PrivateRoute from "./PrivateRoute.jsx"
 
 import { RouteList } from "./RouteList.js"
-// import { URL_LOGIN, URL_SIGN_UP } from "../assets/constants/SitePath.js"
+import { URL_LOGIN } from "../assets/constants/SitePath.js"
 
 function Routing() {
     return (
@@ -21,8 +21,8 @@ function Routing() {
             <Suspense fallback={<LoadingFallback />}>
                 <Routes>
                     <Route exact path={"/"} element={<HomeScreen />} />
-                    {/* <Route exact path={URL_LOGIN} element={<Login />} />
-                    <Route exact path={URL_SIGN_UP} element={<SignUp />} /> */}
+                    <Route exact path={URL_LOGIN} element={<Login />} />
+                    {/* <Route exact path={URL_SIGN_UP} element={<SignUp />} /> */}
                     {
                         RouteList.map((route, index) => {
                             return (

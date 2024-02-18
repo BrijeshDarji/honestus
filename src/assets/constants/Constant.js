@@ -85,5 +85,5 @@ export const NAV_MENU = [
     "About Us",
     "Sectors",
     "Sectors",
-    "Sign Up",
+    // "Sign Up",
 ]
