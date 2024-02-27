@@ -5,10 +5,12 @@
 export const ERROR_MESSAGES = {
     ALL_REQUIRED: "Please make sure all the required fields are filled and are valid.",
     PREVIEW_WARNING: "Please make sure all the required fields are filled in all steps.",
+    TOAST_TITLE: "Error!",
 }
 
 export const SUCCESS_MESSAGES = {
     SUBMITTED: "Successfully Submitted",
+    TOAST_TITLE: "Success!",
 }
 
 export const INFO_MESSAGES = {
