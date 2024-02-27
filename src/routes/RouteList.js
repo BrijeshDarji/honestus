@@ -4,15 +4,16 @@
 
 import { lazy } from "react"
 
-// import WelcomeScreen from "../components/WelcomeScreen"
-// import ClaimFormSuccess from "../components/ClaimForm/ClaimFormSuccess.jsx"
+const SelectMaterial = lazy(() => import("../components/SelectMaterial.jsx" /* webpackChunkName: 'SelectMaterial'*/))
 
-// const ClaimForm = lazy(() => import("../components/ClaimForm/ClaimForm" /* webpackChunkName: 'ClaimForm'*/))
+import {
+    URL_SELECT_MATERIAL,
+} from "../assets/constants/SitePath"
 
 export const RouteList = [
-    /*  {
-         path: URL_WELCOME_SCREEN,
-         exact: true,
-         component: WelcomeScreen,
-     }, */
+    {
+        path: URL_SELECT_MATERIAL,
+        exact: true,
+        component: SelectMaterial,
+    },
 ]

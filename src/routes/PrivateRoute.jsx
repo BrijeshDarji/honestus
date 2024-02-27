@@ -1,9 +1,10 @@
-import { Navigate } from "react-router-dom"
+import { Route, Navigate } from "react-router-dom"
 
 import { URL_LOGIN } from "../assets/constants/SitePath"
+import { isUserAuthenticated } from "../helpers/Utils"
 
 function PrivateRoute({ Component }) {
-    const isLoggedIn = localStorage.getItem('token')
+    const isLoggedIn = isUserAuthenticated()
 
     return (
         <div>

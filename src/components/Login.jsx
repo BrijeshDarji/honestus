@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { Loader2 } from "lucide-react"
@@ -21,6 +22,8 @@ import { useToast } from "@/src/components/ui/use-toast"
 
 import { postApi } from "../helpers/ApiHelper"
 import { LOGIN_API_PATH } from "../assets/constants/ApiPath"
+import { URL_SELECT_MATERIAL } from "../assets/constants/SitePath"
+import { isUserAuthenticated } from "../helpers/Utils"
 
 import {
     ERROR_MESSAGES,
@@ -42,6 +45,7 @@ const schema = yup
 function Login() {
     const [loading, setLoading] = useState(false)
     const { toast } = useToast()
+    const navigate = useNavigate()
 
     const form = useForm({
         resolver: yupResolver(schema),
@@ -50,6 +54,10 @@ function Login() {
             password: ""
         },
     })
+
+    useEffect(() => {
+        isUserAuthenticated() && navigate(URL_SELECT_MATERIAL)
+    }, [navigate])
 
     const handleLogin = (data) => {
         setLoading(true)
@@ -60,6 +68,16 @@ function Login() {
                     title: SUCCESS_MESSAGES.TOAST_TITLE,
                     description: response.message,
                 })
+
+                const {
+                    access,
+                    refresh,
+                } = response.data
+
+                localStorage.setItem("accessToken", access)
+                localStorage.setItem("refreshToken", refresh)
+
+                navigate(URL_SELECT_MATERIAL)
             })
             .catch(error => {
                 toast({
