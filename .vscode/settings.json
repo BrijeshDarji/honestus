@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "login",
-        "component ui"
+        "component ui",
+        "home screen"
     ]
 }

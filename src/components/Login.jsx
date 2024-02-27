@@ -76,7 +76,7 @@ function Login() {
     return (
         <div className='w-full h-screen flex items-center justify-center'>
             <div className="border border-darkOrange rounded-lg flex flex-wrap m-10    w-105 lg:w-200    h-auto lg:h-103">
-                <div className=' bg-darkOrange text-white font-medium p-10  rounded-t-lg lg:rounded-l-lg lg:rounded-tr-none    text-4xl lg:text-5xl    w-full lg:w-1/2'>
+                <div className=' bg-darkOrange text-white font-medium p-10 overflow-hidden  rounded-t-lg lg:rounded-l-lg lg:rounded-tr-none    text-4xl lg:text-5xl    w-full lg:w-1/2'>
                     Honestus.tech
                     <img
                         src={HonestusTransparent}
@@ -89,7 +89,7 @@ function Login() {
                     </p>
                 </div>
 
-                <div className='p-10 w-full lg:w-1/2'>
+                <div className='p-10 w-full lg:w-1/2 bg-white rounded-b-lg lg:rounded-r-lg'>
                     <div className='text-darkSlate font-medium text-4xl mb-5 lg:text-5xl md:mb-10'>
                         Sign in
                     </div>
