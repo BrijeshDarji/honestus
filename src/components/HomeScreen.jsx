@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { Menu } from "lucide-react"
 import { useNavigate, Link } from "react-router-dom"
 
@@ -23,10 +24,19 @@ import {
     MOBILE_NAV_MENU,
 } from "../assets/constants/Constant"
 
-import { URL_LOGIN } from "../assets/constants/SitePath"
+import {
+    URL_LOGIN,
+    URL_SELECT_MATERIAL,
+} from "../assets/constants/SitePath"
+
+import { isUserAuthenticated } from "../helpers/Utils"
 
 function HomeScreen() {
     const navigate = useNavigate()
+
+    useEffect(() => {
+        isUserAuthenticated() && navigate(URL_SELECT_MATERIAL)
+    }, [navigate])
 
     return (
         <>
