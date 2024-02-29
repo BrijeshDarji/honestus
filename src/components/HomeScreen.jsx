@@ -1,80 +1,36 @@
-import { Menu } from "lucide-react"
+import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from "@/src/components/ui/dropdown-menu.jsx"
+import Header from "./containers/Header"
 
-import { Button } from "@/src/components/ui/button"
-
-import HonestusLogo from "../assets/images/HonestusLogo.svg"
 import TestingAggregator from "../assets/images/TestingAggregator.svg"
 import WhatWeOffer from "../assets/images/WhatWeOffer.svg"
 import PartnerWithUs from "../assets/images/PartnerWithUs.svg"
 
 import {
-    NAV_MENU,
     BENEFITS,
     WE_OFFER,
     WHY_WE_EXISTS,
 } from "../assets/constants/Constant"
 
-import { URL_LOGIN } from "../assets/constants/SitePath"
+import {
+    URL_SELECT_MATERIAL,
+} from "../assets/constants/SitePath"
+
+import { isUserAuthenticated } from "../helpers/Utils"
 
 function HomeScreen() {
     const navigate = useNavigate()
 
+    useEffect(() => {
+        isUserAuthenticated() && navigate(URL_SELECT_MATERIAL)
+    }, [navigate])
+
     return (
         <>
-            <div className="flex py-4 px-9 md:px-40 justify-between items-center self-stretch">
-                <img
-                    src={HonestusLogo}
-                    alt="Honestus"
-                    className="w-52 h-12"
-                />
+            <Header />
 
-                <div className="md:hidden">
-                    <DropdownMenu>
-                        <DropdownMenuTrigger>
-                            <Menu />
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent>
-                            {
-                                NAV_MENU.map(menu => (
-                                    <DropdownMenuItem key={menu}>
-                                        {menu}
-                                    </DropdownMenuItem>
-                                ))
-                            }
-                        </DropdownMenuContent>
-                    </DropdownMenu>
-                </div>
-
-                <div className="font-medium hidden md:flex justify-between items-center w-100">
-                    {
-                        NAV_MENU.map((menu, index) => (
-                            <span
-                                key={index + menu}
-                                className="text-xl"
-                            >
-                                {menu}
-                            </span>
-                        ))
-                    }
-
-                    <Button
-                        className="bg-darkOrange hover:bg-darkOrange font-semibold text-xl"
-                        onClick={() => navigate(URL_LOGIN)}
-                    >
-                        LOGIN
-                    </Button>
-                </div>
-            </div>
-
-            <div className="relative w-full">
+            <div className="relative w-full mt-20">
                 <img
                     src={TestingAggregator}
                     alt="TestingAggregator"

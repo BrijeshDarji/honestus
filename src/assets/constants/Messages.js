@@ -11,6 +11,7 @@ export const ERROR_MESSAGES = {
 export const SUCCESS_MESSAGES = {
     SUBMITTED: "Successfully Submitted",
     TOAST_TITLE: "Success!",
+    LOGGED_IN: "Successfully logged in."
 }
 
 export const INFO_MESSAGES = {

@@ -80,10 +80,3 @@ export const WE_OFFER = [
     "Audits and Inspection Services",
     "Last Mile Connectivity for Material Testing Sample Collection",
 ]
-
-export const NAV_MENU = [
-    "About Us",
-    "Sectors",
-    "Sectors",
-    // "Sign Up",
-]
