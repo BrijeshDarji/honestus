@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
-import { Loader2 } from "lucide-react"
 import * as yup from "yup"
 
 import HonestusTransparent from "../assets/images/HonestusTransparent.svg"
@@ -16,9 +15,10 @@ import {
     FormMessage,
 } from "@/src/components/ui/form"
 
-import { Button } from "@/src/components/ui/button"
 import { Input } from "@/src/components/ui/input"
 import { useToast } from "@/src/components/ui/use-toast"
+
+import LoaderButton from "./LoaderButton"
 
 import { postApi } from "../helpers/ApiHelper"
 import { LOGIN_API_PATH } from "../assets/constants/ApiPath"
@@ -66,7 +66,7 @@ function Login() {
             .then(response => {
                 toast({
                     title: SUCCESS_MESSAGES.TOAST_TITLE,
-                    description: response.message,
+                    description: response.data.message || SUCCESS_MESSAGES.LOGGED_IN,
                 })
 
                 const {
@@ -82,7 +82,7 @@ function Login() {
             .catch(error => {
                 toast({
                     title: ERROR_MESSAGES.TOAST_TITLE,
-                    description: error.message,
+                    description: error.response.data.message,
                     variant: "destructive",
                 })
             })
@@ -151,21 +151,15 @@ function Login() {
                                     </FormItem>
                                 )}
                             />
-                            <Button
-                                className="bg-darkOrange hover:bg-darkOrange focus-visible:border-darkOrange"
+
+                            <LoaderButton
+                                loading={loading}
                                 type="submit"
-                                disabled={loading}
-                            >
-                                {loading
-                                    ? (
-                                        <>
-                                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                            Logging in
-                                        </>
-                                    )
+                                text={loading
+                                    ? "Logging in"
                                     : "Login"
                                 }
-                            </Button>
+                            />
                         </form>
                     </Form>
                 </div>
