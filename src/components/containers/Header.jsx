@@ -122,7 +122,7 @@ function Header() {
 
     return (
         <>
-            <div className="flex py-4 px-9 md:px-40 justify-between items-center self-stretch fixed top-0 w-full z-10 bg-white">
+            <div className="flex py-4 px-9 md:px-40 justify-between items-center self-stretch fixed top-0 w-full z-10 bg-white drop-shadow-xl">
                 <img
                     src={HonestusLogo}
                     alt="Honestus"
