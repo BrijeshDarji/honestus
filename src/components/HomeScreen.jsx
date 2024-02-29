@@ -1,5 +1,5 @@
 import { Menu } from "lucide-react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 
 import {
     DropdownMenu,
@@ -20,6 +20,7 @@ import {
     BENEFITS,
     WE_OFFER,
     WHY_WE_EXISTS,
+    MOBILE_NAV_MENU,
 } from "../assets/constants/Constant"
 
 import { URL_LOGIN } from "../assets/constants/SitePath"
@@ -43,10 +44,16 @@ function HomeScreen() {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent>
                             {
-                                NAV_MENU.map(menu => (
-                                    <DropdownMenuItem key={menu}>
-                                        {menu}
-                                    </DropdownMenuItem>
+                                MOBILE_NAV_MENU.map(menu => (
+                                    <Link
+                                        to={menu.action}
+                                        key={menu.title}
+                                    >
+                                        <DropdownMenuItem
+                                        >
+                                            {menu.title}
+                                        </DropdownMenuItem>
+                                    </Link>
                                 ))
                             }
                         </DropdownMenuContent>
@@ -56,20 +63,21 @@ function HomeScreen() {
                 <div className="font-medium hidden md:flex justify-between items-center w-100">
                     {
                         NAV_MENU.map((menu, index) => (
-                            <span
-                                key={index + menu}
+                            <Link
+                                key={index + menu.title}
                                 className="text-xl"
+                                to={menu.action}
                             >
-                                {menu}
-                            </span>
+                                {menu.title}
+                            </Link>
                         ))
                     }
 
                     <Button
-                        className="bg-darkOrange hover:bg-darkOrange font-semibold text-xl"
+                        className="bg-darkOrange hover:bg-darkOrange font-semibold text-lg"
                         onClick={() => navigate(URL_LOGIN)}
                     >
-                        LOGIN
+                        Login
                     </Button>
                 </div>
             </div>

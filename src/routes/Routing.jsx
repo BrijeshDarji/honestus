@@ -13,14 +13,18 @@ import Login from "../components/Login.jsx"
 import PrivateRoute from "./PrivateRoute.jsx"
 
 import { RouteList } from "./RouteList.js"
-import { URL_LOGIN } from "../assets/constants/SitePath.js"
+
+import {
+    URL_HOME_SCREEN,
+    URL_LOGIN,
+} from "../assets/constants/SitePath.js"
 
 function Routing() {
     return (
         <BrowserRouter>
             <Suspense fallback={<LoadingFallback />}>
                 <Routes>
-                    <Route exact path={"/"} element={<HomeScreen />} />
+                    <Route exact path={URL_HOME_SCREEN} element={<HomeScreen />} />
                     <Route exact path={URL_LOGIN} element={<Login />} />
                     {/* <Route exact path={URL_SIGN_UP} element={<SignUp />} /> */}
                     {
