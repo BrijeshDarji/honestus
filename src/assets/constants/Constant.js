@@ -2,12 +2,6 @@
  *  @description This file contains all system constants.
  */
 
-
-import {
-    URL_HOME_SCREEN,
-    URL_LOGIN,
-} from "./SitePath"
-
 import MonitorTesting from "../images/MonitorTesting.svg"
 import LabTesting from "../images/LabTesting.svg"
 import Truck from "../images/Truck.svg"
@@ -85,23 +79,4 @@ export const WE_OFFER = [
     "Training Program for Your Workforce",
     "Audits and Inspection Services",
     "Last Mile Connectivity for Material Testing Sample Collection",
-]
-
-export const NAV_MENU = [
-    {
-        title: "About Us",
-        action: URL_HOME_SCREEN,
-    },
-    {
-        title: "Sectors",
-        action: URL_HOME_SCREEN,
-    },
-]
-
-export const MOBILE_NAV_MENU = [
-    ...NAV_MENU,
-    {
-        title: "Login",
-        action: URL_LOGIN,
-    },
 ]
