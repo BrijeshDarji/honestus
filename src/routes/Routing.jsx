@@ -34,7 +34,7 @@ function Routing() {
                                     key={index}
                                     path={route.path}
                                     exact={route.exact}
-                                    element={<PrivateRoute Component={route.component} />}
+                                    element={<PrivateRoute Component={route.component} {...route} />}
                                 />
                             )
                         })
