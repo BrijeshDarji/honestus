@@ -11,10 +11,11 @@ import {
     BENEFITS,
     WE_OFFER,
     WHY_WE_EXISTS,
+    headerSpacing,
 } from "../assets/constants/Constant"
 
 import {
-    URL_SELECT_MATERIAL,
+    URL_CUSTOMER_PLACE_ORDER,
 } from "../assets/constants/SitePath"
 
 import { isUserAuthenticated } from "../helpers/Utils"
@@ -23,12 +24,12 @@ function HomeScreen() {
     const navigate = useNavigate()
 
     useEffect(() => {
-        isUserAuthenticated() && navigate(URL_SELECT_MATERIAL)
+        isUserAuthenticated() && navigate(URL_CUSTOMER_PLACE_ORDER)
     }, [navigate])
 
     return (
         <>
-            <Header />
+            <Header className={headerSpacing} />
 
             <div className="relative w-full mt-20">
                 <img

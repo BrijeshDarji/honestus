@@ -1,6 +1,7 @@
-import { useMemo, useState } from "react"
+import { memo, useMemo, useState } from "react"
 import { Menu } from "lucide-react"
 import { useNavigate } from "react-router-dom"
+import { clsx } from "clsx"
 
 import {
     DropdownMenu,
@@ -25,7 +26,7 @@ import { postApi } from "@/src/helpers/ApiHelper"
 import { LOGOUT_API_PATH } from "@/src/assets/constants/ApiPath"
 import { ERROR_MESSAGES, SUCCESS_MESSAGES } from "@/src/assets/constants/Messages"
 
-function Header() {
+function Header(props) {
     const navigate = useNavigate()
     const { toast } = useToast()
 
@@ -122,7 +123,7 @@ function Header() {
 
     return (
         <>
-            <div className="flex py-4 px-9 md:px-40 justify-between items-center self-stretch fixed top-0 w-full z-10 bg-white drop-shadow-xl">
+            <div className={clsx(props.className, "flex justify-between items-center self-stretch fixed top-0 w-full z-10 bg-white drop-shadow-xl")}>
                 <img
                     src={HonestusLogo}
                     alt="Honestus"
@@ -155,7 +156,7 @@ function Header() {
                         desktopNavMenu.map((menu, index) => (
                             <span
                                 key={index + menu.title}
-                                className="text-xl hover:bg-gray-100 hover:cursor-pointer hover:rounded-lg px-5 py-2 min-w-fit"
+                                className="md:text-base lg:text-lg hover:bg-gray-100 hover:cursor-pointer hover:rounded-lg px-5 py-2 min-w-fit"
                                 onClick={menu.action}
                             >
                                 {menu.title}
@@ -184,4 +185,4 @@ function Header() {
     )
 }
 
-export default Header
+export default memo(Header)

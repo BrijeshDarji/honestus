@@ -5,4 +5,4 @@
 export const URL_HOME_SCREEN = "/"
 export const URL_LOGIN = "/login"
 export const URL_SIGN_UP = "/signup"
-export const URL_SELECT_MATERIAL = "/select-material"
+export const URL_CUSTOMER_PLACE_ORDER = "/customer-place-order"

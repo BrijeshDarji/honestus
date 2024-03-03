@@ -21,12 +21,13 @@ function LoaderButton(props) {
             size={size}
             variant={variant}
         >
+            {text}
+            &ensp;
             {
                 loading && (
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 )
             }
-            {text}
         </Button>
     )
 }

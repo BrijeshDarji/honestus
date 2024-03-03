@@ -80,3 +80,7 @@ export const WE_OFFER = [
     "Audits and Inspection Services",
     "Last Mile Connectivity for Material Testing Sample Collection",
 ]
+
+export const headerSpacing = "py-4 px-12 lg:px-20"
+
+export const TOTAl_CUSTOMER_STEPS = 8
