@@ -4,6 +4,8 @@
 
 import axios from "axios"
 
+import { v1ApiPrefix } from "../assets/constants/ApiPath"
+
 axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
 
 export const errorHandler = (err) => {
@@ -32,7 +34,23 @@ export const postApi = async (url, data) => {
             headers: {}
         }
         return axios
-            .post(url, data, config)
+            .post(v1ApiPrefix + url, data, config)
+            .then((response) => response)
+    }
+    catch (err) {
+        return promisifyError(err)
+    }
+}
+
+export const getApi = async (url) => {
+    try {
+        let config;
+
+        config = {
+            headers: {}
+        }
+        return axios
+            .get(v1ApiPrefix + url, config)
             .then((response) => response)
     }
     catch (err) {

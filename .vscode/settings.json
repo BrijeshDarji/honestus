@@ -2,6 +2,7 @@
     "conventionalCommits.scopes": [
         "login",
         "component ui",
-        "home screen"
+        "home screen",
+        "customerForm"
     ]
 }

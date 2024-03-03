@@ -22,7 +22,7 @@ import LoaderButton from "./LoaderButton"
 
 import { postApi } from "../helpers/ApiHelper"
 import { LOGIN_API_PATH } from "../assets/constants/ApiPath"
-import { URL_SELECT_MATERIAL } from "../assets/constants/SitePath"
+import { URL_CUSTOMER_PLACE_ORDER } from "../assets/constants/SitePath"
 import { isUserAuthenticated } from "../helpers/Utils"
 
 import {
@@ -56,7 +56,7 @@ function Login() {
     })
 
     useEffect(() => {
-        isUserAuthenticated() && navigate(URL_SELECT_MATERIAL)
+        isUserAuthenticated() && navigate(URL_CUSTOMER_PLACE_ORDER)
     }, [navigate])
 
     const handleLogin = (data) => {
@@ -77,7 +77,7 @@ function Login() {
                 localStorage.setItem("accessToken", access)
                 localStorage.setItem("refreshToken", refresh)
 
-                navigate(URL_SELECT_MATERIAL)
+                navigate(URL_CUSTOMER_PLACE_ORDER)
             })
             .catch(error => {
                 toast({
