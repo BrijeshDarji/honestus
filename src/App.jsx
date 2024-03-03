@@ -1,4 +1,4 @@
-import ErrorBoundary from "./components/ErrorBoundary.jsx"
+import ErrorBoundary from "./components/pages/ErrorBoundary.jsx"
 import Routing from "./routes/Routing.jsx"
 
 import { Toaster } from "@/src/components/ui/toaster"

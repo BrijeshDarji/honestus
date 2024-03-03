@@ -12,7 +12,7 @@ import {
 
 import { useToast } from "@/src/components/ui/use-toast"
 
-import LoaderButton from "../LoaderButton"
+import LoaderButton from "../form_elements/LoaderButton"
 
 import HonestusLogo from "../../assets/images/HonestusLogo.svg"
 
