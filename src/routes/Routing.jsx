@@ -7,8 +7,8 @@ import { Suspense } from "react"
 import { Routes, Route, BrowserRouter } from "react-router-dom"
 
 import LoadingFallback from "./LoadingFallback.jsx"
-import HomeScreen from "../components/HomeScreen.jsx"
-import Login from "../components/Login.jsx"
+import HomeScreen from "../components/pages/HomeScreen.jsx"
+import Login from "../components/pages/Login.jsx"
 /* import SignUp from "../components/signup/SignUp.jsx" */
 import PrivateRoute from "./PrivateRoute.jsx"
 

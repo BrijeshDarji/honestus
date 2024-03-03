@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 
-import HonestusTransparent from "../assets/images/HonestusTransparent.svg"
+import HonestusTransparent from "../../assets/images/HonestusTransparent.svg"
 
 import {
     Form,
@@ -18,17 +18,17 @@ import {
 import { Input } from "@/src/components/ui/input"
 import { useToast } from "@/src/components/ui/use-toast"
 
-import LoaderButton from "./LoaderButton"
+import LoaderButton from "../form_elements/LoaderButton"
 
-import { postApi } from "../helpers/ApiHelper"
-import { LOGIN_API_PATH } from "../assets/constants/ApiPath"
-import { URL_CUSTOMER_PLACE_ORDER } from "../assets/constants/SitePath"
-import { isUserAuthenticated } from "../helpers/Utils"
+import { postApi } from "../../helpers/ApiHelper"
+import { LOGIN_API_PATH } from "../../assets/constants/ApiPath"
+import { URL_CUSTOMER_PLACE_ORDER } from "../../assets/constants/SitePath"
+import { isUserAuthenticated } from "../../helpers/Utils"
 
 import {
     ERROR_MESSAGES,
     SUCCESS_MESSAGES,
-} from "../assets/constants/Messages"
+} from "../../assets/constants/Messages"
 
 const schema = yup
     .object({
