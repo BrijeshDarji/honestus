@@ -38,7 +38,7 @@ function HomeScreen() {
                     className="w-full h-180 object-cover bg-opacity-20"
                 />
 
-                <div className="absolute text-shadow shadow-[#00000040] inset-y-20 right-72 text-white font-semibold text-6.5xl flex flex-col items-start leading-relaxed">
+                <div className="absolute text-shadow shadow-[#00000040] inset-y-20 right-8 md:right-11 lg:right-16 xl:right-72 text-white font-semibold text-5xl md:text-6.5xl flex flex-col items-start leading-relaxed">
                     <div>End to End</div>
                     <div>Paperless</div>
                     <div>Process</div>
