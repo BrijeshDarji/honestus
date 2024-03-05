@@ -99,7 +99,7 @@ function Login() {
                     <img
                         src={HonestusTransparent}
                         alt="Honestus"
-                        className="float-right  w-36 lg:w-66    h-60 lg:h-96    -mr-16 lg:-mr-24"
+                        className="float-right  w-36 lg:w-66    h-60 lg:h-96    -mr-16 lg:-mr-24    max-sm:hidden"
                     />
 
                     <p className="text-lightWhite text-2xl leading-8 mt-3 lg:text-3xl lg:leading-12 md:mt-5">
