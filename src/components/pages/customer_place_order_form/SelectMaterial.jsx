@@ -1,6 +1,7 @@
-import { memo, useEffect, useState } from 'react'
+import { memo, useEffect, useMemo, useState } from 'react'
 import { clsx } from 'clsx'
-import { ChevronLast, CopyCheck } from 'lucide-react'
+import { ChevronLast, CopyCheck, CopyMinus } from 'lucide-react'
+import difference from 'lodash.difference'
 
 import SearchBar from '../../form_elements/SearchBar'
 import PageLoading from '../../form_elements/PageLoading'
@@ -22,6 +23,20 @@ function SelectMaterial(props) {
         selectedMaterialList,
         setSelectedMaterialList,
     } = props
+
+    const areAllMaterialSelected = useMemo(() => {
+        if (materialList.length && selectedMaterialList.length) {
+            const materialIds = materialList.map(item => item.id)
+            const selectedMaterialIds = selectedMaterialList.map(item => item.id)
+
+            const differentIds = difference(materialIds, selectedMaterialIds)
+
+            if (!differentIds.length) {
+                return true
+            }
+        }
+        return false
+    }, [materialList, selectedMaterialList])
 
     useEffect(() => {
         getApi(LAB.MATERIAL.BASE)
@@ -73,6 +88,73 @@ function SelectMaterial(props) {
         }
     }
 
+    const handleSelectAll = () => {
+        let finalArray = materialList
+
+        if (selectedMaterialList.length) {
+            const stateData = JSON.parse(JSON.stringify(materialList))
+
+            selectedMaterialList.forEach(material => {
+                const selectedIndex = stateData.findIndex(item => item.id === material.id)
+
+                if (selectedIndex > -1) {
+                    stateData.splice(selectedIndex, 1)
+                }
+            })
+            finalArray = selectedMaterialList.concat(stateData)
+        }
+        setSelectedMaterialList(finalArray)
+    }
+
+    const handleDeselectAll = () => {
+        let finalArray = []
+
+        if (materialList.length) {
+            const stateData = JSON.parse(JSON.stringify(selectedMaterialList))
+
+            materialList.forEach(material => {
+                const selectedIndex = stateData.findIndex(item => item.id === material.id)
+
+                if (selectedIndex > -1) {
+                    stateData.splice(selectedIndex, 1)
+                }
+            })
+            finalArray = stateData
+        }
+        setSelectedMaterialList(finalArray)
+    }
+
+    const ActionButtons = () => (
+        <div className="flex justify-between items-center">
+            {
+                areAllMaterialSelected
+                    ? (
+                        <Button
+                            variant="outline"
+                            onClick={handleDeselectAll}
+                        >
+                            <CopyMinus />
+                            &nbsp; Deselect All
+                        </Button>
+                    )
+                    : (
+                        <Button
+                            variant="outline"
+                            onClick={handleSelectAll}
+                        >
+                            <CopyCheck />
+                            &nbsp; Select All
+                        </Button>
+                    )
+            }
+
+            <Button>
+                Next &nbsp;
+                <ChevronLast />
+            </Button>
+        </div>
+    )
+
     return (
         <div className='h-full'>
             {loading
@@ -93,6 +175,8 @@ function SelectMaterial(props) {
                         {materialList.length
                             ? (
                                 <>
+                                    <ActionButtons />
+
                                     <div className="flex flex-wrap gap-4 justify-around">
                                         {materialList.map(material => {
                                             const isMaterialSelected = selectedMaterialList.find(m => m?.id === material.id)
@@ -119,17 +203,7 @@ function SelectMaterial(props) {
                                         })}
                                     </div>
 
-                                    <div className="flex justify-between items-center">
-                                        <Button variant="outline">
-                                            <CopyCheck />
-                                            &nbsp; Select All
-                                        </Button>
-
-                                        <Button>
-                                            Next &nbsp;
-                                            <ChevronLast />
-                                        </Button>
-                                    </div>
+                                    <ActionButtons />
                                 </>
                             )
                             : (
