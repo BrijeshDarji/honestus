@@ -1,7 +1,7 @@
-import { memo, useMemo, useState } from 'react'
-import { Menu } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
 import { clsx } from 'clsx'
+import { Menu } from 'lucide-react'
+import { memo, useMemo, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import {
   DropdownMenu,
@@ -10,21 +10,18 @@ import {
   DropdownMenuTrigger
 } from '@/src/components/ui/dropdown-menu.jsx'
 
+import { URL_HOME_SCREEN, URL_LOGIN } from '@/src/assets/constants/SitePath'
+import HonestusLogo from '@/src/assets/images/HonestusLogo.svg'
+import LoaderButton from '@/src/components/form_elements/LoaderButton'
 import { useToast } from '@/src/components/ui/use-toast'
 
-import LoaderButton from '../form_elements/LoaderButton'
-
-import HonestusLogo from '../../assets/images/HonestusLogo.svg'
-
-import { URL_HOME_SCREEN, URL_LOGIN } from '../../assets/constants/SitePath'
-
-import { isUserAuthenticated } from '@/src/helpers/Utils'
-import { postApi } from '@/src/helpers/ApiHelper'
 import { LOGOUT_API_PATH } from '@/src/assets/constants/ApiPath'
 import {
   ERROR_MESSAGES,
   SUCCESS_MESSAGES
 } from '@/src/assets/constants/Messages'
+import { postApi } from '@/src/helpers/ApiHelper'
+import { isUserAuthenticated } from '@/src/helpers/Utils'
 
 function Header(props) {
   const navigate = useNavigate()

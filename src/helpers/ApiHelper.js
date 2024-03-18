@@ -2,9 +2,8 @@
  *  @description This file contains API helper methods.
  */
 
+import { v1ApiPrefix } from '@/src/assets/constants/ApiPath'
 import axios from 'axios'
-
-import { v1ApiPrefix } from '../assets/constants/ApiPath'
 
 axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
 

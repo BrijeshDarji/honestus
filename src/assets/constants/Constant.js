@@ -2,16 +2,16 @@
  *  @description This file contains all system constants.
  */
 
-import MonitorTesting from '../images/MonitorTesting.svg'
-import LabTesting from '../images/LabTesting.svg'
-import Truck from '../images/Truck.svg'
-import Hexagonal from '../images/Hexagonal.svg'
-import Location from '../images/Location.svg'
-import File from '../images/File.svg'
-import Report from '../images/Report.svg'
-import LabCrystal from '../images/LabCrystal.svg'
-import SaveTime from '../images/SaveTime.svg'
-import FileCrystal from '../images/FileCrystal.svg'
+import MonitorTesting from '@/src/images/MonitorTesting.svg'
+import LabTesting from '@/src/images/LabTesting.svg'
+import Truck from '@/src/images/Truck.svg'
+import Hexagonal from '@/src/images/Hexagonal.svg'
+import Location from '@/src/images/Location.svg'
+import File from '@/src/images/File.svg'
+import Report from '@/src/images/Report.svg'
+import LabCrystal from '@/src/images/LabCrystal.svg'
+import SaveTime from '@/src/images/SaveTime.svg'
+import FileCrystal from '@/src/images/FileCrystal.svg'
 
 export const WHY_WE_EXISTS = [
   {

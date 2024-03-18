@@ -1,9 +1,9 @@
 import { Navigate } from 'react-router-dom'
 
-import Container from '../components/containers/Container'
+import Container from '@/src/components/containers/Container'
 
-import { URL_HOME_SCREEN } from '../assets/constants/SitePath'
-import { isUserAuthenticated } from '../helpers/Utils'
+import { URL_HOME_SCREEN } from '@/src/assets/constants/SitePath'
+import { isUserAuthenticated } from '@/src/helpers/Utils'
 
 function PrivateRoute({ Component, ...rest }) {
   const isLoggedIn = isUserAuthenticated()

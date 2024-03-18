@@ -4,17 +4,17 @@
  */
 
 import { Suspense } from 'react'
-import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
+import HomeScreen from '@/src/pages/HomeScreen.jsx'
+import Login from '@/src/pages/Login.jsx'
 import LoadingFallback from './LoadingFallback.jsx'
-import HomeScreen from '../components/pages/HomeScreen.jsx'
-import Login from '../components/pages/Login.jsx'
-/* import SignUp from "../components/signup/SignUp.jsx" */
+/* import SignUp from "@/src/components/signup/SignUp.jsx" */
 import PrivateRoute from './PrivateRoute.jsx'
 
 import { RouteList } from './RouteList.js'
 
-import { URL_HOME_SCREEN, URL_LOGIN } from '../assets/constants/SitePath.js'
+import { URL_HOME_SCREEN, URL_LOGIN } from '@/src/assets/constants/SitePath.js'
 
 function Routing() {
   return (

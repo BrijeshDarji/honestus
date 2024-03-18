@@ -8,9 +8,8 @@
 
 import { Component } from 'react'
 
-import { INFO_MESSAGES } from '../../assets/constants/Messages'
-
-import FallbackIcon from '../../assets/images/fallback.png'
+import { INFO_MESSAGES } from '@/src/assets/constants/Messages'
+import FallbackIcon from '@/src/assets/images/fallback.png'
 
 const style = {
   mainWrapper: {

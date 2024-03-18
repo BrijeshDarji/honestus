@@ -1,16 +1,16 @@
-import { memo, useEffect, useMemo, useState } from 'react'
 import { clsx } from 'clsx'
-import { ChevronLast, CopyCheck, CopyMinus } from 'lucide-react'
 import difference from 'lodash.difference'
+import { ChevronLast, CopyCheck, CopyMinus } from 'lucide-react'
+import { memo, useEffect, useMemo, useState } from 'react'
 
-import SearchBar from '../../form_elements/SearchBar'
-import PageLoading from '../../form_elements/PageLoading'
-import { Button } from '../../ui/button'
+import PageLoading from '@/src/components/form_elements/PageLoading'
+import SearchBar from '@/src/components/form_elements/SearchBar'
+import { Button } from '@/src/components/ui/button'
 import { useToast } from '@/src/components/ui/use-toast'
 
-import { getApi } from '../../../helpers/ApiHelper'
-import { LAB } from '../../../assets/constants/ApiPath'
-import { ERROR_MESSAGES } from '../../../assets/constants/Messages'
+import { LAB } from '@/src/assets/constants/ApiPath'
+import { ERROR_MESSAGES } from '@/src/assets/constants/Messages'
+import { getApi } from '@/src/helpers/ApiHelper'
 
 function SelectMaterial(props) {
   const { toast } = useToast()

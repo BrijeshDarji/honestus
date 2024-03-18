@@ -1,22 +1,22 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import Header from '../containers/Header'
+import Header from '@/src/components/containers/Header'
 
-import TestingAggregator from '../../assets/images/TestingAggregator.svg'
-import WhatWeOffer from '../../assets/images/WhatWeOffer.svg'
-import PartnerWithUs from '../../assets/images/PartnerWithUs.svg'
+import PartnerWithUs from '@/src/assets/images/PartnerWithUs.svg'
+import TestingAggregator from '@/src/assets/images/TestingAggregator.svg'
+import WhatWeOffer from '@/src/assets/images/WhatWeOffer.svg'
 
 import {
   BENEFITS,
   WE_OFFER,
   WHY_WE_EXISTS,
   headerSpacing
-} from '../../assets/constants/Constant'
+} from '@/src/assets/constants/Constant'
 
-import { URL_CUSTOMER_PLACE_ORDER } from '../../assets/constants/SitePath'
+import { URL_CUSTOMER_PLACE_ORDER } from '@/src/assets/constants/SitePath'
 
-import { isUserAuthenticated } from '../../helpers/Utils'
+import { isUserAuthenticated } from '@/src/helpers/Utils'
 
 function HomeScreen() {
   const navigate = useNavigate()

@@ -7,11 +7,11 @@ import { lazy } from 'react'
 const CustomerPlaceOrderForm = lazy(
   () =>
     import(
-      '../components/pages/customer_place_order_form/CustomerPlaceOrderForm.jsx' /* webpackChunkName: 'CustomerPlaceOrderForm'*/
+      '@/src/pages/customer_place_order_form/CustomerPlaceOrderForm.jsx' /* webpackChunkName: 'CustomerPlaceOrderForm'*/
     )
 )
 
-import { URL_CUSTOMER_PLACE_ORDER } from '../assets/constants/SitePath'
+import { URL_CUSTOMER_PLACE_ORDER } from '@/src/assets/constants/SitePath'
 
 export const RouteList = [
   {
