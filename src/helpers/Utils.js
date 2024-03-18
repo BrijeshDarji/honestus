@@ -1,10 +1,9 @@
 /**
- *  @description This file contains helper methods. 
+ *  @description This file contains helper methods.
  */
 
 export const isUserAuthenticated = () => {
-    return Boolean(
-        localStorage.getItem("accessToken") &&
-        localStorage.getItem("refreshToken")
-    )
+  return Boolean(
+    localStorage.getItem('accessToken') && localStorage.getItem('refreshToken')
+  )
 }
