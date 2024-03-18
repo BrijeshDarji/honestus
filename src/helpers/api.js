@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { LogOut } from './utils'
 // import { logOut, notifyError } from '../utils'
 
 const BASE_URL = `${import.meta.env.VITE_BASE_URL}`
@@ -63,12 +64,12 @@ server.interceptors.response.use(
       error.response.data.errors === 'Refresh Token is invalid'
     ) {
       // notifyError('Your session is expired. Please log in again.')
-      // logOut()
+      LogOut()
       return Promise.reject(error)
     }
 
     if (isTokenExpiredError(error)) {
-      // logOut(true)
+      LogOut()
       // notifyError('Invalid crendetials')
     }
 
