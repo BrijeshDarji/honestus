@@ -16,7 +16,7 @@ import {
 
 import { URL_CUSTOMER_PLACE_ORDER } from '@/src/assets/constants/SitePath'
 
-import { isAuthenticated } from '@/src/helpers/Utils'
+import { isAuthenticated } from '@/src/helpers/utils'
 
 function HomeScreen() {
   const navigate = useNavigate()

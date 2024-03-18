@@ -8,11 +8,11 @@ import {
   BrowserRouter as Router,
   Routes
 } from 'react-router-dom'
-import { isAuthenticated } from './helpers/Utils.js'
-import HomeScreen from './pages/Home.jsx'
-import Login from './pages/Login.jsx'
-import CustomerPlaceOrderForm from './pages/customerPlaceOrder'
-import Header from './components/Header.jsx'
+import { isAuthenticated } from '@/src/helpers/utils.js'
+import HomeScreen from '@/src/pages/Home.jsx'
+import Login from '@/src/pages/Login.jsx'
+import CustomerPlaceOrderForm from '@/src/pages/customerPlaceOrder'
+import Header from '@/src/components/Header.jsx'
 import clsx from 'clsx'
 
 const PrivateRoutes = () => {

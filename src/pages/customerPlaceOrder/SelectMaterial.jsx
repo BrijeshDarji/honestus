@@ -8,9 +8,8 @@ import SearchBar from '@/src/components/form_elements/SearchBar'
 import { Button } from '@/src/components/ui/button'
 import { useToast } from '@/src/components/ui/use-toast'
 
-import { LAB } from '@/src/assets/constants/ApiPath'
 import { ERROR_MESSAGES } from '@/src/assets/constants/Messages'
-import { getApi } from '@/src/helpers/ApiHelper'
+import { server } from '@/src/helpers/api'
 
 export default function SelectMaterial(props) {
   const { toast } = useToast()
@@ -36,7 +35,8 @@ export default function SelectMaterial(props) {
   }, [materialList, selectedMaterialList])
 
   useEffect(() => {
-    getApi(LAB.MATERIAL.BASE)
+    server
+      .get('/labs/materials/')
       .then((response) => {
         if (response.data) {
           setOriginalMaterialList(response.data)

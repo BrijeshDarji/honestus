@@ -19,7 +19,7 @@ import {
   ERROR_MESSAGES,
   SUCCESS_MESSAGES
 } from '@/src/assets/constants/Messages'
-import { isAuthenticated } from '@/src/helpers/Utils'
+import { isAuthenticated } from '@/src/helpers/utils'
 import { server } from '../helpers/api'
 
 export default function Header(props) {

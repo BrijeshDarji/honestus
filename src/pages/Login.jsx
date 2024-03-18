@@ -21,7 +21,7 @@ import { useToast } from '@/src/components/ui/use-toast'
 import LoaderButton from '@/src/components/form_elements/LoaderButton'
 
 import { URL_CUSTOMER_PLACE_ORDER } from '@/src/assets/constants/SitePath'
-import { isAuthenticated } from '@/src/helpers/Utils'
+import { isAuthenticated } from '@/src/helpers/utils'
 
 import {
   ERROR_MESSAGES,
