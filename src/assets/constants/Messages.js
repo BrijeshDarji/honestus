@@ -3,21 +3,24 @@
  */
 
 export const ERROR_MESSAGES = {
-    ALL_REQUIRED: "Please make sure all the required fields are filled and are valid.",
-    PREVIEW_WARNING: "Please make sure all the required fields are filled in all steps.",
-    TOAST_TITLE: "Error!",
+  ALL_REQUIRED:
+    'Please make sure all the required fields are filled and are valid.',
+  PREVIEW_WARNING:
+    'Please make sure all the required fields are filled in all steps.',
+  TOAST_TITLE: 'Error!'
 }
 
 export const SUCCESS_MESSAGES = {
-    SUBMITTED: "Successfully Submitted",
-    TOAST_TITLE: "Success!",
-    LOGGED_IN: "Successfully logged in."
+  SUBMITTED: 'Successfully Submitted',
+  TOAST_TITLE: 'Success!',
+  LOGGED_IN: 'Successfully logged in.'
 }
 
 export const INFO_MESSAGES = {
-    FALLBACK: {
-        MAIN_TEXT: "Oops... Something went wrong.",
-        SUB_TEXT_1: "Please refresh the page & try again.",
-        SUB_TEXT_2: "If you still face the same issue then, please contact to support team!",
-    },
+  FALLBACK: {
+    MAIN_TEXT: 'Oops... Something went wrong.',
+    SUB_TEXT_1: 'Please refresh the page & try again.',
+    SUB_TEXT_2:
+      'If you still face the same issue then, please contact to support team!'
+  }
 }
