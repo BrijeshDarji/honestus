@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import Header from '@/src/components/containers/Header'
+import Header from '@/src/components/Header'
 
 import PartnerWithUs from '@/src/assets/images/PartnerWithUs.svg'
 import TestingAggregator from '@/src/assets/images/TestingAggregator.svg'
@@ -16,13 +16,13 @@ import {
 
 import { URL_CUSTOMER_PLACE_ORDER } from '@/src/assets/constants/SitePath'
 
-import { isUserAuthenticated } from '@/src/helpers/Utils'
+import { isAuthenticated } from '@/src/helpers/Utils'
 
 function HomeScreen() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    isUserAuthenticated() && navigate(URL_CUSTOMER_PLACE_ORDER)
+    isAuthenticated() && navigate(URL_CUSTOMER_PLACE_ORDER)
   }, [navigate])
 
   return (

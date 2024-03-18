@@ -1,6 +1,6 @@
 import { clsx } from 'clsx'
 import { Menu } from 'lucide-react'
-import { memo, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import {
@@ -15,15 +15,14 @@ import HonestusLogo from '@/src/assets/images/HonestusLogo.svg'
 import LoaderButton from '@/src/components/form_elements/LoaderButton'
 import { useToast } from '@/src/components/ui/use-toast'
 
-import { LOGOUT_API_PATH } from '@/src/assets/constants/ApiPath'
 import {
   ERROR_MESSAGES,
   SUCCESS_MESSAGES
 } from '@/src/assets/constants/Messages'
-import { postApi } from '@/src/helpers/ApiHelper'
-import { isUserAuthenticated } from '@/src/helpers/Utils'
+import { isAuthenticated } from '@/src/helpers/Utils'
+import { server } from '../helpers/api'
 
-function Header(props) {
+export default function Header(props) {
   const navigate = useNavigate()
   const { toast } = useToast()
 
@@ -32,7 +31,8 @@ function Header(props) {
   const handleLogout = () => {
     setLoading(true)
 
-    postApi(LOGOUT_API_PATH)
+    server
+      .post('/auth/logout/')
       .then((response) => {
         toast({
           title: SUCCESS_MESSAGES.TOAST_TITLE,
@@ -41,7 +41,7 @@ function Header(props) {
 
         localStorage.removeItem('accessToken')
         localStorage.removeItem('refreshToken')
-        navigate(URL_HOME_SCREEN)
+        navigate('/')
       })
       .catch((error) => {
         toast({
@@ -105,7 +105,7 @@ function Header(props) {
   ]
 
   const isUserLoggedIn = useMemo(() => {
-    return isUserAuthenticated()
+    return isAuthenticated()
   }, [])
 
   const desktopNavMenu = isUserLoggedIn ? LOGGED_IN_NAV_MENU : NAV_MENU
@@ -169,5 +169,3 @@ function Header(props) {
     </>
   )
 }
-
-export default memo(Header)

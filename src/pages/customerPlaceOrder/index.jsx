@@ -1,5 +1,5 @@
 import { clsx } from 'clsx'
-import { lazy, memo, useState } from 'react'
+import { lazy, useState } from 'react'
 
 const SelectMaterial = lazy(
   () => import('./SelectMaterial.jsx' /* webpackChunkName: 'SelectMaterial'*/)
@@ -7,7 +7,7 @@ const SelectMaterial = lazy(
 
 import { TOTAl_CUSTOMER_STEPS } from '@/src/assets/constants/Constant.js'
 
-function CustomerPlaceOrderForm() {
+export default function CustomerPlaceOrderForm() {
   const [activeStep, setActiveStep] = useState(1)
   const [selectedMaterialList, setSelectedMaterialList] = useState([])
 
@@ -48,5 +48,3 @@ function CustomerPlaceOrderForm() {
     </div>
   )
 }
-
-export default memo(CustomerPlaceOrderForm)

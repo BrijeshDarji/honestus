@@ -20,15 +20,14 @@ import { useToast } from '@/src/components/ui/use-toast'
 
 import LoaderButton from '@/src/components/form_elements/LoaderButton'
 
-import { LOGIN_API_PATH } from '@/src/assets/constants/ApiPath'
 import { URL_CUSTOMER_PLACE_ORDER } from '@/src/assets/constants/SitePath'
-import { postApi } from '@/src/helpers/ApiHelper'
-import { isUserAuthenticated } from '@/src/helpers/Utils'
+import { isAuthenticated } from '@/src/helpers/Utils'
 
 import {
   ERROR_MESSAGES,
   SUCCESS_MESSAGES
 } from '@/src/assets/constants/Messages'
+import { server } from '../helpers/api'
 
 const schema = yup.object({
   email: yup.string().trim().required('Email or Username is required'),
@@ -49,13 +48,14 @@ function Login() {
   })
 
   useEffect(() => {
-    isUserAuthenticated() && navigate(URL_CUSTOMER_PLACE_ORDER)
+    isAuthenticated() && navigate(URL_CUSTOMER_PLACE_ORDER)
   }, [navigate])
 
   const handleLogin = (data) => {
     setLoading(true)
 
-    postApi(LOGIN_API_PATH, data)
+    server
+      .post('/auth/login/', data)
       .then((response) => {
         toast({
           title: SUCCESS_MESSAGES.TOAST_TITLE,

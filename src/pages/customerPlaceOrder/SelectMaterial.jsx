@@ -1,7 +1,7 @@
 import { clsx } from 'clsx'
 import difference from 'lodash.difference'
 import { ChevronLast, CopyCheck, CopyMinus } from 'lucide-react'
-import { memo, useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import PageLoading from '@/src/components/form_elements/PageLoading'
 import SearchBar from '@/src/components/form_elements/SearchBar'
@@ -12,7 +12,7 @@ import { LAB } from '@/src/assets/constants/ApiPath'
 import { ERROR_MESSAGES } from '@/src/assets/constants/Messages'
 import { getApi } from '@/src/helpers/ApiHelper'
 
-function SelectMaterial(props) {
+export default function SelectMaterial(props) {
   const { toast } = useToast()
 
   const [loading, setLoading] = useState(true)
@@ -205,5 +205,3 @@ function SelectMaterial(props) {
     </div>
   )
 }
-
-export default memo(SelectMaterial)
