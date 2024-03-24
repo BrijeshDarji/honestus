@@ -10,7 +10,6 @@ import {
   DropdownMenuTrigger
 } from '@/src/components/ui/dropdown-menu.jsx'
 
-import { URL_HOME_SCREEN, URL_LOGIN } from '@/src/assets/constants/SitePath'
 import HonestusLogo from '@/src/assets/images/HonestusLogo.svg'
 import LoaderButton from '@/src/components/form_elements/LoaderButton'
 import { useToast } from '@/src/components/ui/use-toast'
@@ -58,12 +57,12 @@ export default function Header(props) {
   const NAV_MENU = [
     {
       title: 'About Us',
-      action: () => navigate(URL_HOME_SCREEN),
+      action: () => navigate('/'),
       disabled: false
     },
     {
       title: 'Sectors',
-      action: () => navigate(URL_HOME_SCREEN),
+      action: () => navigate('/'),
       disabled: false
     }
   ]
@@ -72,7 +71,7 @@ export default function Header(props) {
     ...NAV_MENU,
     {
       title: 'Login',
-      action: () => navigate(URL_LOGIN),
+      action: () => navigate('/login'),
       disabled: false
     }
   ]
@@ -115,57 +114,53 @@ export default function Header(props) {
     : MOBILE_NAV_MENU
 
   return (
-    <>
-      <div
-        className={clsx(
-          props.className,
-          'flex justify-between items-center self-stretch fixed top-0 w-full z-10 bg-white drop-shadow-xl'
-        )}
-      >
-        <img src={HonestusLogo} alt="Honestus" className="w-52 h-12" />
+    <div
+      className={clsx(
+        props.className,
+        'flex justify-between items-center self-stretch fixed top-0 w-full z-10 bg-white drop-shadow-xl'
+      )}
+    >
+      <img src={HonestusLogo} alt="Honestus" className="w-52 h-12" />
 
-        <div className="md:hidden">
-          <DropdownMenu>
-            <DropdownMenuTrigger>
-              <Menu />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              {mobileNavMenu.map((menu) => (
-                <DropdownMenuItem
-                  key={menu.title}
-                  onClick={menu.action}
-                  disabled={menu.disabled}
-                >
-                  {menu.title}
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-
-        <div className="font-medium hidden md:flex justify-end items-center gap-2 w-100">
-          {desktopNavMenu.map((menu, index) => (
-            <span
-              key={index + menu.title}
-              className="md:text-base lg:text-lg hover:bg-gray-100 hover:cursor-pointer hover:rounded-lg px-5 py-2 min-w-fit"
-              onClick={menu.action}
-            >
-              {menu.title}
-            </span>
-          ))}
-
-          <LoaderButton
-            className="text-lg"
-            loading={loading}
-            text={
-              isUserLoggedIn ? (loading ? 'Logging out' : 'Logout') : 'Login'
-            }
-            onClick={() => {
-              isUserLoggedIn ? handleLogout() : navigate(URL_LOGIN)
-            }}
-          />
-        </div>
+      <div className="md:hidden">
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <Menu />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            {mobileNavMenu.map((menu) => (
+              <DropdownMenuItem
+                key={menu.title}
+                onClick={menu.action}
+                disabled={menu.disabled}
+              >
+                {menu.title}
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
-    </>
+
+      <div className="font-medium hidden md:flex justify-end items-center gap-2 w-100">
+        {desktopNavMenu.map((menu, index) => (
+          <span
+            key={index + menu.title}
+            className="md:text-base lg:text-lg hover:bg-gray-100 hover:cursor-pointer hover:rounded-lg px-5 py-2 min-w-fit"
+            onClick={menu.action}
+          >
+            {menu.title}
+          </span>
+        ))}
+
+        <LoaderButton
+          className="text-lg"
+          loading={loading}
+          text={isUserLoggedIn ? (loading ? 'Logging out' : 'Logout') : 'Login'}
+          onClick={() => {
+            isUserLoggedIn ? handleLogout() : navigate('/login')
+          }}
+        />
+      </div>
+    </div>
   )
 }

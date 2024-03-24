@@ -20,7 +20,6 @@ import { useToast } from '@/src/components/ui/use-toast'
 
 import LoaderButton from '@/src/components/form_elements/LoaderButton'
 
-import { URL_CUSTOMER_PLACE_ORDER } from '@/src/assets/constants/SitePath'
 import { isAuthenticated } from '@/src/helpers/utils'
 
 import {
@@ -48,7 +47,7 @@ function Login() {
   })
 
   useEffect(() => {
-    isAuthenticated() && navigate(URL_CUSTOMER_PLACE_ORDER)
+    isAuthenticated() && navigate('/customer-place-order')
   }, [navigate])
 
   const handleLogin = (data) => {
@@ -67,7 +66,7 @@ function Login() {
         localStorage.setItem('accessToken', access)
         localStorage.setItem('refreshToken', refresh)
 
-        navigate(URL_CUSTOMER_PLACE_ORDER)
+        navigate('/customer-place-order')
       })
       .catch((error) => {
         toast({
