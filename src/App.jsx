@@ -1,5 +1,4 @@
 import { Toaster } from '@/src/components/ui/toaster'
-import ErrorBoundary from './pages/ErrorBoundary.jsx'
 
 import {
   Navigate,
@@ -13,6 +12,7 @@ import HomeScreen from '@/src/pages/Home.jsx'
 import Login from '@/src/pages/Login.jsx'
 import CustomerPlaceOrderForm from '@/src/pages/customerPlaceOrder'
 import Header from '@/src/components/Header.jsx'
+import ErrorBoundary from '@/src/ErrorBoundary.jsx'
 import clsx from 'clsx'
 
 const PrivateRoutes = () => {
