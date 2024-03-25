@@ -5,7 +5,11 @@ import Slider from 'react-slick'
 import Header from '@/src/components/Header'
 
 import PartnerWithUs from '@/src/assets/images/PartnerWithUs.svg'
-import TestingAggregator from '@/src/assets/images/TestingAggregator.svg'
+import image1 from '@/src/assets/images/banner/image1.png'
+import image2 from '@/src/assets/images/banner/image2.png'
+import image3 from '@/src/assets/images/banner/image3.png'
+import image4 from '@/src/assets/images/banner/image4.png'
+import image5 from '@/src/assets/images/banner/image5.png'
 import WhatWeOffer from '@/src/assets/images/WhatWeOffer.svg'
 
 import {
@@ -41,8 +45,8 @@ function HomeScreen() {
         >
           <div className="relative w-full">
             <img
-              src={TestingAggregator}
-              alt="TestingAggregator"
+              src={image1}
+              alt="image1"
               className="w-full h-180 object-cover bg-opacity-20"
             />
             <div className="absolute text-shadow shadow-[#00000040] inset-y-20 right-8 md:right-11 lg:right-16 xl:right-16 text-white font-semibold text-5xl md:text-6.5xl flex flex-col items-start leading-relaxed">
@@ -53,17 +57,51 @@ function HomeScreen() {
           </div>
           <div>
             <img
-              src={TestingAggregator}
-              alt="TestingAggregator"
+              src={image2}
+              alt="image2"
               className="w-full h-180 object-cover bg-opacity-20"
             />
+            <div className="absolute text-shadow shadow-[#00000040] inset-y-20 right-8 md:right-11 lg:right-16 xl:right-16 text-white font-semibold text-5xl md:text-6.5xl flex flex-col items-start leading-relaxed">
+              <div>End to End</div>
+              <div>Paperless</div>
+              <div>Process</div>
+            </div>
           </div>
           <div>
             <img
-              src={TestingAggregator}
-              alt="TestingAggregator"
+              src={image3}
+              alt="image3"
               className="w-full h-180 object-cover bg-opacity-20"
             />
+            <div className="absolute text-shadow shadow-[#00000040] inset-y-20 right-8 md:right-11 lg:right-16 xl:right-16 text-white font-semibold text-5xl md:text-6.5xl flex flex-col items-start leading-relaxed">
+              <div>End to End</div>
+              <div>Paperless</div>
+              <div>Process</div>
+            </div>
+          </div>
+          <div>
+            <img
+              src={image4}
+              alt="image4"
+              className="w-full h-180 object-cover bg-opacity-20"
+            />
+            <div className="absolute text-shadow shadow-[#00000040] inset-y-20 right-8 md:right-11 lg:right-16 xl:right-16 text-white font-semibold text-5xl md:text-6.5xl flex flex-col items-start leading-relaxed">
+              <div>End to End</div>
+              <div>Paperless</div>
+              <div>Process</div>
+            </div>
+          </div>
+          <div>
+            <img
+              src={image5}
+              alt="image5"
+              className="w-full h-180 object-cover bg-opacity-20"
+            />
+            <div className="absolute text-shadow shadow-[#00000040] inset-y-20 right-8 md:right-11 lg:right-16 xl:right-16 text-white font-semibold text-5xl md:text-6.5xl flex flex-col items-start leading-relaxed">
+              <div>End to End</div>
+              <div>Paperless</div>
+              <div>Process</div>
+            </div>
           </div>
         </Slider>
 
