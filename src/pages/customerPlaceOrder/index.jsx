@@ -6,6 +6,7 @@ const SelectMaterial = lazy(
 )
 
 import { TOTAl_CUSTOMER_STEPS } from '@/src/assets/constants/Constant.js'
+import AddToCart from './AddToCart.jsx'
 
 export default function CustomerPlaceOrderForm() {
   const [activeStep, setActiveStep] = useState(1)
@@ -20,6 +21,15 @@ export default function CustomerPlaceOrderForm() {
             setActiveStep={setActiveStep}
             selectedMaterialList={selectedMaterialList}
             setSelectedMaterialList={setSelectedMaterialList}
+          />
+        )
+
+      case 2:
+        return (
+          <AddToCart
+            activeStep={activeStep}
+            setActiveStep={setActiveStep}
+            selectedMaterialList={selectedMaterialList}
           />
         )
 

@@ -18,7 +18,7 @@ export default function SelectMaterial(props) {
   const [originalMaterialList, setOriginalMaterialList] = useState([])
   const [materialList, setMaterialList] = useState([])
 
-  const { selectedMaterialList, setSelectedMaterialList } = props
+  const { selectedMaterialList, setSelectedMaterialList, setActiveStep } = props
 
   const areAllMaterialSelected = useMemo(() => {
     if (materialList.length && selectedMaterialList.length) {
@@ -139,7 +139,7 @@ export default function SelectMaterial(props) {
         </Button>
       )}
 
-      <Button>
+      <Button onClick={() => setActiveStep(2)}>
         Next &nbsp;
         <ChevronLast />
       </Button>
